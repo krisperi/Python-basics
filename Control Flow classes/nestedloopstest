@@ -1,0 +1,11 @@
+
+
+lista_em_py = ["R1", "R2", "R3", "CORE"]
+lista_interfaces = ["interface gi1", "interface gi2"]
+
+for nested in lista_em_py:
+    for nested2 in lista_interfaces:
+        print(f"""
+        {nested2}
+        description This is interface {nested2} on {nested}""")
+

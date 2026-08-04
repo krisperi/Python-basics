@@ -1,0 +1,24 @@
+'''
+# Testando listas
+
+lista_em_py = ["R1", "R2", "R3", "CORE"]
+for device in lista_em_py:
+    print(f"I have device {device} in the network")
+
+'''
+'''
+# Testando strings 
+str = "Testando strings em loops"
+
+for device in str:
+    print(f"I have device {device} in the network")
+
+'''
+'''
+
+lista_interfaces = ["interface gi1", "interface gi2"]
+
+for interface in lista_interfaces: 
+    print(f"\n{interface}\n ip ospf 1 area 0\n")
+
+'''
