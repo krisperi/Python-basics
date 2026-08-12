@@ -36,8 +36,6 @@ for device in devices:
 
         connection.send_config_from_file("commands.txt")
 
-        print(connection.send_command("show running-config"))
-
         connection.disconnect()
 
     except NetmikoTimeoutException:
