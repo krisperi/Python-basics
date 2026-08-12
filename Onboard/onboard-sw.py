@@ -19,7 +19,6 @@ print(f"Devices to onboard: {devices}")
 
 username=input("Enter username: ")
 password=getpass("Enter password: ")
-enable_password=getpass("Enter enable password: ")
 
 for device in devices:
     try:
@@ -27,7 +26,6 @@ for device in devices:
             device_type="cisco_ios",
             host=device,
             username=username,
-            enable_password=enable_password,
             password=password
         )
         print(f""""
@@ -36,7 +34,7 @@ for device in devices:
         ###################################
         """)
 
-        connection.send_config_from_file("commands.txt")
+        connection.send_config_from_file("commands.txt", expected_string=r"#")
 
         connection.disconnect()
 
