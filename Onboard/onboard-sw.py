@@ -34,7 +34,7 @@ for device in devices:
         ###################################
         """)
 
-        connection.send_config_from_file("commands.txt", expect_string=r"#")
+        connection.send_config_from_file("commands.txt")
 
         connection.disconnect()
 
