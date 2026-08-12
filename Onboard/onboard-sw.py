@@ -36,6 +36,9 @@ for device in devices:
 
         connection.send_config_from_file("commands.txt")
 
+        if connection:
+            print(f"Configuração realizada no {device}.")
+
         connection.disconnect()
 
     except NetmikoTimeoutException:
