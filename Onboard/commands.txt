@@ -1,16 +1,13 @@
-conf t
-!
-ip domain name network.lab
 !
 enable secret Cisco123
 username admin secret Cisco123
 no username tempssh
 !
-ntp server vrf MGMT 10.1.1.1
-ntp server vrf MGMT 10.1.1.2
-ntp server vrf MGMT 10.1.1.3
+ntp server 10.1.1.1
+ntp server 10.1.1.2
+ntp server 10.1.1.3
 !
-ip route vrf mgmt 0.0.0.0 0.0.0.0 10.1.1.1
+ip route 0.0.0.0 0.0.0.0 192.168.0.1
 !
 snmp-server community LAB-RO RO
 snmp-server location NETWORK-LAB
