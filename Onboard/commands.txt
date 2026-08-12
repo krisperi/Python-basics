@@ -1,3 +1,5 @@
+conf t
+!
 ip domain name network.lab
 !
 enable secret Cisco123
