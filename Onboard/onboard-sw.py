@@ -2,7 +2,7 @@ from getpass import getpass
 from netmiko import ConnectHandler
 from netmiko import NetmikoTimeoutException, NetmikoAuthenticationException
 
-devices = ["192.168.0.1", "192.168.0.2", "192.168.0.3"]
+devices = ["192.168.0.20", "192.168.0.21", "192.168.0.22"]
 
 '''
 Para redes inteiras usar :
@@ -14,7 +14,7 @@ for octeto in range(2, 254):
 
 '''
 
-print("Devices to onboard: {}".format(devices))
+print(f"Devices to onboard: {devices}")
 
 
 username=input("Enter username: ")
@@ -28,11 +28,11 @@ for device in devices:
             username=username,
             password=password
         )
-        print(""""
+        print(f""""
         ###################################
-        #Successfully connected to {}#
+        #Successfully connected to {device}#
         ###################################
-        """.format(device))
+        """)
 
         connection.send_config_from_file("commands.txt")
 
@@ -41,10 +41,10 @@ for device in devices:
         connection.disconnect()
 
     except NetmikoTimeoutException:
-        print("Timeout no {}".format(device))
+        print(f"Timeout no {device}")
 
     except NetmikoAuthenticationException:
-        print("Problema de autenticação {}".format(device))
+        print(f"Problema de autenticação {device}")
 
     except Exception as e:
-        print("Erro esquisito, verifique a vanilla no equip {}: {}".format(device, e))
+        print(f"Erro esquisito, verifique a vanilla no equip {device}: {e}")
