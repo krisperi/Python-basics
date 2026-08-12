@@ -14,7 +14,7 @@ for octeto in range(2, 254):
 
 '''
 
-print(f"Devices to onboard: {devices}")
+print("Devices to onboard: {}".format(devices))
 
 
 username=input("Enter username: ")
@@ -28,12 +28,11 @@ for device in devices:
             username=username,
             password=password
         )
-        print(f"""
+        print(""""
         ###################################
-        #Successfully connected to {device}#
+        #Successfully connected to {}#
         ###################################
-        """
-        )
+        """.format(device))
 
         connection.send_config_from_file("commands.txt")
 
@@ -42,10 +41,10 @@ for device in devices:
         connection.disconnect()
 
     except NetmikoTimeoutException:
-        print(f"Timeout no {device}")
+        print("Timeout no {}".format(device))
 
     except NetmikoAuthenticationException:
-        print(f"Problema de autenticação {device}")
+        print("Problema de autenticação {}".format(device))
 
     except Exception as e:
-        print(f"Erro esquisito, verifique a vanilla no equip {device}: {e}")
+        print("Erro esquisito, verifique a vanilla no equip {}: {}".format(device, e))
